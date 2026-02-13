@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>MOON Shop | FastFlags</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            background-color: #050505;
+            color: #d1d1d1;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        #voidCanvas {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1; pointer-events: none;
+        }
+
+        #entete-de-page {
+            padding: 20px 0; font-size: 14px;
+            background: linear-gradient(180deg, #1a0033 0%, #050505 100%);
+            text-align: center; color: #a020f0;
+            letter-spacing: 3px; text-transform: uppercase; font-weight: bold;
+        }
+
+        .back-btn {
+            position: absolute; top: 20px; left: 20px;
+            color: #a020f0; text-decoration: none; font-weight: bold;
+            border: 1px solid #a020f0; padding: 8px 15px;
+            border-radius: 5px; transition: 0.3s; z-index: 100;
+        }
+
+        .back-btn:hover { background: #a020f0; color: white; box-shadow: 0 0 10px #a020f0; }
+
+        #contenu h1 {
+            margin: 40px 0 10px 0; font-size: 42px;
+            text-transform: uppercase; text-align: center;
+            letter-spacing: 8px; color: #ffffff;
+            text-shadow: 0 0 25px #a020f0;
+        }
+
+        .subtitle {
+            text-align: center; color: #666; margin-bottom: 40px;
+            font-size: 0.9rem; letter-spacing: 2px;
+        }
+
+        .ff-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px; padding: 20px; max-width: 1300px;
+            margin: 0 auto; width: 90%;
+        }
+
+        .ff-card {
+            background-color: rgba(15, 15, 15, 0.85);
+            border: 1px solid #2e004f; border-radius: 15px;
+            padding: 35px 25px; text-align: center;
+            transition: all 0.3s ease; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            display: flex; flex-direction: column; backdrop-filter: blur(8px);
+        }
+
+        .ff-card:hover {
+            transform: translateY(-8px); border-color: #a020f0;
+            box-shadow: 0 0 25px rgba(160, 32, 240, 0.2);
+            background: rgba(20, 20, 20, 1);
+        }
+
+        .ff-card h2 { font-size: 24px; color: #ffffff; margin-bottom: 15px; text-transform: uppercase; }
+
+        .ff-card p { font-size: 15px; line-height: 1.6; margin-bottom: 25px; color: #b0b0b0; flex-grow: 1; }
+
+        .robux-amount {
+            font-size: 24px; font-weight: bold; color: #a020f0;
+            text-shadow: 0 0 10px rgba(160, 32, 240, 0.5); margin-top: auto;
+        }
+
+        .bottom-area {
+            display: flex; align-items: center; justify-content: center;
+            gap: 40px; margin: 60px 0 120px 0; padding: 20px; flex-wrap: wrap;
+        }
+
+        .injector-section {
+            max-width: 450px; padding: 25px;
+            background: rgba(26, 0, 51, 0.5); border-radius: 12px;
+            border-left: 5px solid #a020f0; text-align: left;
+        }
+
+        .discord-btn {
+            padding: 18px 45px; background-color: #5865F2;
+            color: white; text-decoration: none; border-radius: 10px;
+            font-weight: bold; font-size: 1.1rem; transition: 0.3s;
+            box-shadow: 0 0 15px rgba(88, 101, 242, 0.4);
+        }
+
+        .discord-btn:hover { transform: scale(1.05); }
+
+        #pied-de-page {
+            position: fixed; bottom: 25px; right: 25px;
+            background: rgba(10, 10, 10, 0.95); padding: 15px 35px;
+            border-radius: 40px; font-size: 16px; border: 2px solid #a020f0;
+            color: white; box-shadow: 0 0 20px rgba(160, 32, 240, 0.5);
+            backdrop-filter: blur(10px); z-index: 1000;
+        }
+    </style>
+</head>
+
+<body>
+
+<canvas id="voidCanvas"></canvas>
+<a href="index.html" class="back-btn">← BACK</a>
+
+<div id="entete-de-page">
+    MOON SHOP • EXCLUSIVE CONTENT • 2026
+</div>
+
+<div id="contenu">
+    <h1>FastFlags</h1>
+    <div class="subtitle">Engine-level optimizations for TPS: Street Soccer</div>
+
+    <div class="ff-container">
+        <div class="ff-card">
+            <h2>Super OP Moss</h2>
+            <p>Maximum engine-level power. The ultimate choice for serious mossers.</p>
+            <div class="robux-amount">800 Robux</div>
+        </div>
+        <div class="ff-card">
+            <h2>OP Mossing</h2>
+            <p>Significant aerial boost for dominant ball connection and power.</p>
+            <div class="robux-amount">500 Robux</div>
+        </div>
+        
+        <div class="ff-card">
+            <h2>GK & Dribbling</h2>
+            <p>Tweaks for sharper reactions and better close-control ball physics.</p>
+            <div class="robux-amount">500 Robux</div>
+        </div>
+        <div class="ff-card">
+            <h2>FPS Flags</h2>
+            <p>Maximum frame stability and hardware performance boost.</p>
+            <div class="robux-amount">300 Robux</div>
+        </div>
+        <div class="ff-card">
+            <h2>Ping Flags</h2>
+            <p>Network interpolation tweaks for lower perceived latency.</p>
+            <div class="robux-amount">300 Robux</div>
+        </div>
+    </div>
+
+    <div class="bottom-area">
+        <div class="injector-section">
+            <h3>Private Injector</h3>
+            <p>Exclusive internal tool. Not for public sale. High Robux or PayPal offers only.</p>
+        </div>
+
+        <a href="https://discord.gg/JXmE8rnEx4" target="_blank" class="discord-btn">
+            JOIN DISCORD
+        </a>
+    </div>
+</div>
+
+<div id="pied-de-page">
+    MOON Shop © 2026 | Credit: <strong>nabil</strong> (olkz_00)
+</div>
+
+<script>
+    const canvas = document.getElementById('voidCanvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+    window.addEventListener('resize', resize);
+    resize();
+    class Particle {
+        constructor() { this.reset(); }
+        reset() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.size = Math.random() * 2 + 0.5;
+            this.speedX = (Math.random() - 0.5) * 0.3;
+            this.speedY = (Math.random() - 0.5) * 0.3;
+            this.opacity = Math.random();
+        }
+        update() {
+            this.x += this.speedX; this.y += this.speedY;
+            if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) this.reset();
+        }
+        draw() {
+            ctx.fillStyle = `rgba(160,32,240,${this.opacity})`;
+            ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fill();
+        }
+    }
+    for (let i = 0; i < 800; i++) particles.push(new Particle());
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(p => { p.update(); p.draw(); });
+        requestAnimationFrame(animate);
+    }
+    animate();
+</script>
+
+</body>
+</html>
