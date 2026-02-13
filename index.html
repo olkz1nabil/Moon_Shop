@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>MOON Shop | Home</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* THEME: DARK VOID PURPLE & BLACK */
+        body {
+            background-color: #050505; 
+            color: #d1d1d1;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* VOID CANVAS LAYER */
+        #voidCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        #entete-de-page {
+            background: linear-gradient(180deg, #1a0033 0%, transparent 100%);
+            padding: 80px 20px 40px 20px;
+            text-align: center;
+        }
+
+        h1 { 
+            color: #ffffff; 
+            font-size: clamp(3rem, 10vw, 5rem); 
+            letter-spacing: 15px; 
+            margin: 0;
+            text-shadow: 0 0 30px #a020f0; 
+            text-transform: uppercase;
+            animation: title-glow 3s infinite ease-in-out;
+        }
+
+        @keyframes title-glow {
+            0%, 100% { text-shadow: 0 0 20px #a020f0; }
+            50% { text-shadow: 0 0 50px #a020f0, 0 0 10px #ffffff; }
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #a020f0;
+            margin-bottom: 40px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            font-size: 1.1rem;
+            opacity: 0.8;
+            animation: breathe 4s infinite;
+        }
+
+        @keyframes breathe {
+            0%, 100% { opacity: 0.4; letter-spacing: 5px; }
+            50% { opacity: 1; letter-spacing: 7px; }
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-grow: 1;
+            z-index: 1;
+        }
+
+        /* NAVIGATION BOXES - COOL FEATURE: GLASSMORPHISM */
+        .nav-box {
+            text-decoration: none;
+            background: rgba(15, 15, 15, 0.7); 
+            padding: 50px 30px;
+            width: 320px;
+            border-radius: 24px;
+            text-align: center;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(160, 32, 240, 0.3);
+            cursor: pointer;
+            backdrop-filter: blur(12px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-box::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(160, 32, 240, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: 0.5s;
+        }
+
+        .nav-box:hover {
+            transform: translateY(-15px) scale(1.02);
+            border-color: #a020f0; 
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 20px rgba(160, 32, 240, 0.4);
+            background: rgba(26, 0, 51, 0.5);
+        }
+
+        .nav-box:hover::after {
+            opacity: 1;
+        }
+
+        h2 {
+            margin-bottom: 15px;
+            font-size: 30px;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 0 0 10px rgba(255,255,255,0.2);
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #b0b0b0;
+            margin: 0;
+        }
+
+        strong {
+            color: #a020f0;
+            text-shadow: 0 0 5px rgba(160, 32, 240, 0.5);
+        }
+
+        /* DISCORD LINK */
+        .discord-area {
+            text-align: center;
+            padding: 60px 20px;
+            z-index: 1;
+        }
+
+        .discord-btn {
+            display: inline-block;
+            background: linear-gradient(45deg, #5865F2, #a020f0);
+            color: white;
+            text-decoration: none;
+            padding: 18px 45px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            transition: 0.4s;
+            box-shadow: 0 0 20px rgba(88, 101, 242, 0.4);
+        }
+
+        .discord-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 40px rgba(160, 32, 240, 0.6);
+            letter-spacing: 2px;
+        }
+
+        /* FOOTER CREDIT */
+        #pied-de-page {
+            text-align: center;
+            padding: 40px;
+            font-size: 14px; 
+            color: #444;
+            border-top: 1px solid rgba(26, 0, 51, 0.5);
+            backdrop-filter: blur(5px);
+        }
+
+        #pied-de-page strong {
+            color: #ffffff;
+            text-shadow: 0 0 10px #a020f0;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="voidCanvas"></canvas>
+
+    <header id="entete-de-page">
+        <h1>MOON SHOP</h1>
+        <p class="subtitle">PREMIUM TPS STREET SOCCER TOOLS</p>
+    </header>
+    
+    <div class="container">
+        <a href="Fastflags.html" class="nav-box">
+            <h2>FastFlags</h2>
+            <p>Bypass engine limits. Optimize <strong>input latency</strong> and <strong>physics processing</strong> for a faster technical response.</p>
+        </a>
+
+        <a href="Scripts.html" class="nav-box">
+            <h2>Scripts</h2>
+            <p>Advanced <strong>timing calculations</strong> and <strong>spatial tools</strong> designed to master gameplay mechanics.</p>
+        </a>
+    </div>
+
+    <div class="discord-area">
+        <a href="https://discord.gg/JXmE8rnEx4" target="_blank" class="discord-btn">JOIN THE DISCORD</a>
+    </div>
+
+    <footer id="pied-de-page">
+        MOON Shop © 2026 | Developed by <strong>nabil</strong> (olkz_00)
+    </footer>
+
+    <script>
+        const canvas = document.getElementById('voidCanvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        let shootingStar;
+        const mouse = { x: null, y: null, radius: 150 };
+
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+        });
+
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        class Particle {
+            constructor() { this.reset(); }
+            reset() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.isWhite = Math.random() > 0.75;
+                this.size = this.isWhite ? Math.random() * 2.5 + 1 : Math.random() * 1.5 + 0.5;
+                this.speedX = (Math.random() - 0.5) * 0.4;
+                this.speedY = (Math.random() - 0.5) * 0.4;
+                this.opacity = Math.random() * 0.5 + 0.1;
+                this.twinkle = Math.random() * 0.01 + 0.005;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+
+                // Mouse Interaction (Flee)
+                let dx = mouse.x - this.x;
+                let dy = mouse.y - this.y;
+                let distance = Math.sqrt(dx * dx + dy * dy);
+                if (distance < mouse.radius) {
+                    let angle = Math.atan2(dy, dx);
+                    let force = (mouse.radius - distance) / mouse.radius;
+                    this.x -= Math.cos(angle) * force * 6;
+                    this.y -= Math.sin(angle) * force * 6;
+                }
+
+                this.opacity += this.twinkle;
+                if (this.opacity > 0.8 || this.opacity < 0.1) this.twinkle *= -1;
+                if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) this.reset();
+            }
+            draw() {
+                ctx.beginPath();
+                if (this.isWhite) {
+                    ctx.shadowBlur = 10;
+                    ctx.shadowColor = "white";
+                    ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
+                } else {
+                    ctx.shadowBlur = 0;
+                    ctx.fillStyle = `rgba(160, 32, 240, ${this.opacity})`;
+                }
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.shadowBlur = 0;
+            }
+        }
+
+        class ShootingStar {
+            constructor() { this.init(); }
+            init() {
+                this.x = Math.random() * (canvas.width / 2);
+                this.y = 0;
+                this.length = Math.random() * 120 + 80;
+                this.speed = Math.random() * 15 + 10;
+                this.opacity = 1;
+            }
+            update() {
+                this.x += this.speed;
+                this.y += this.speed;
+                this.opacity -= 0.02;
+                if (this.opacity <= 0 || this.y > canvas.height) this.init();
+            }
+            draw() {
+                ctx.strokeStyle = `rgba(255, 255, 255, ${this.opacity})`;
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+                ctx.moveTo(this.x, this.y);
+                ctx.lineTo(this.x - this.length, this.y - this.length);
+                ctx.stroke();
+            }
+        }
+
+        // Spawn 800 Stars
+        for (let i = 0; i < 800; i++) particles.push(new Particle());
+        shootingStar = new ShootingStar();
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => { p.update(); p.draw(); });
+            shootingStar.update();
+            shootingStar.draw();
+            requestAnimationFrame(animate);
+        }
+        animate();
+    </script>
+</body>
+</html>
