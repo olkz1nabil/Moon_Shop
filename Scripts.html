@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>MOON Shop | Scripts</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* THEME: DARK VOID PURPLE & BLACK */
+        body {
+            background-color: #050505; 
+            color: #d1d1d1;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        #voidCanvas {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1; pointer-events: none;
+        }
+
+        #entete-de-page {
+            background: linear-gradient(180deg, #1a0033 0%, #050505 100%);
+            padding: 60px 20px 20px 20px;
+            text-align: center;
+        }
+
+        .back-btn {
+            position: absolute; top: 25px; left: 25px;
+            color: #a020f0; text-decoration: none; font-weight: bold;
+            border: 2px solid #a020f0; padding: 10px 20px;
+            border-radius: 8px; transition: 0.3s; z-index: 100;
+            text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px;
+        }
+
+        .back-btn:hover { background: #a020f0; color: white; box-shadow: 0 0 15px #a020f0; }
+
+        h1 { 
+            color: #ffffff; font-size: 3.5rem; letter-spacing: 10px; 
+            margin: 0; text-shadow: 0 0 20px #a020f0; text-transform: uppercase;
+        }
+
+        .subtitle {
+            text-align: center; color: #a020f0; margin-bottom: 25px;
+            font-weight: bold; text-transform: uppercase; letter-spacing: 3px; font-size: 1rem;
+        }
+
+        .section-title {
+            width: 100%; text-align: center; color: #ffffff;
+            font-size: 1.8rem; margin: 40px 0 10px 0;
+            text-transform: uppercase; letter-spacing: 5px;
+            text-shadow: 0 0 10px #a020f0;
+        }
+
+        .container {
+            display: flex; justify-content: center; gap: 20px;
+            flex-wrap: wrap; padding: 20px; max-width: 1400px;
+            margin: 0 auto; padding-bottom: 120px;
+        }
+
+        .card {
+            background-color: rgba(15, 15, 15, 0.85); 
+            padding: 30px 20px; width: 260px; border-radius: 15px;
+            text-align: center; transition: 0.3s ease;
+            display: flex; flex-direction: column;
+            border: 1px solid #2e004f; backdrop-filter: blur(8px);
+        }
+
+        .card:hover {
+            transform: translateY(-10px); border-color: #a020f0; 
+            box-shadow: 0 0 25px rgba(160, 32, 240, 0.3);
+            background: rgba(20, 20, 20, 1);
+        }
+
+        .card.premium {
+            background: linear-gradient(145deg, rgba(26, 0, 51, 0.9), rgba(5, 5, 5, 0.9));
+            border: 2px solid #a020f0; position: relative;
+            animation: premium-glow 3s infinite ease-in-out;
+            width: 320px; /* Make GUI stand out */
+        }
+
+        @keyframes premium-glow {
+            0%, 100% { box-shadow: 0 0 15px rgba(160, 32, 240, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(160, 32, 240, 0.6); border-color: #ffffff; }
+        }
+
+        h2 { margin-bottom: 10px; font-size: 22px; color: #ffffff; text-transform: uppercase; }
+
+        p { font-size: 14px; line-height: 1.5; flex-grow: 1; color: #b0b0b0; }
+
+        .price {
+            margin-top: 20px; font-size: 24px; font-weight: bold;
+            color: #a020f0; text-shadow: 0 0 10px rgba(160, 32, 240, 0.5);
+        }
+
+        #pied-de-page {
+            position: fixed; bottom: 25px; right: 25px;
+            background: rgba(10, 10, 10, 0.95); padding: 15px 35px;
+            border-radius: 40px; font-size: 18px; 
+            border: 2px solid #a020f0; color: white;
+            box-shadow: 0 0 20px rgba(160, 32, 240, 0.5);
+            backdrop-filter: blur(10px); z-index: 1000;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="voidCanvas"></canvas>
+    <a href="index.html" class="back-btn">← BACK</a>
+
+    <header id="entete-de-page">
+        <h1>Script Marketplace</h1>
+        <p class="subtitle">TPS Optimization Tiers</p>
+    </header>
+    
+    <div class="container">
+        <div class="section-title">MOSS SERIES</div>
+        <div class="card">
+            <h2>MOSS 25%</h2>
+            <p>Starter power for casual play. Improve your fundamental ball connection.</p>
+            <div class="price">400 Robux</div>
+        </div>
+        <div class="card">
+            <h2>MOSS 50%</h2>
+            <p>Balanced timing for consistent headers and aerial volleys.</p>
+            <div class="price">650 Robux</div>
+        </div>
+        <div class="card">
+            <h2>MOSS 75%</h2>
+            <p>The low-pinger advantage. Maximum power and elite timing.</p>
+            <div class="price">1.2k Robux</div>
+        </div>
+
+        <div class="section-title">OUTFIELD SERIES</div>
+        <div class="card">
+            <h2>OUTFIELD 25%</h2>
+            <p>Enhanced reaction speed for basic field coverage.</p>
+            <div class="price">300 Robux</div>
+        </div>
+        <div class="card">
+            <h2>OUTFIELD 50%</h2>
+            <p>Semi-pro optimization for better skilling and defensive plays.</p>
+            <div class="price">600 Robux</div>
+        </div>
+        <div class="card">
+            <h2>OUTFIELD 75%</h2>
+            <p>Elite field dominance. React instantly to every play on the pitch.</p>
+            <div class="price">900 Robux</div>
+        </div>
+
+        <div class="section-title">PREMIUM SYSTEMS</div>
+        <div class="card premium">
+            <h2>MOON ULTIMATE GUI</h2>
+            <p>The full package. Includes live Moss percentages and Stud tracking analytics in a custom menu.</p>
+            <div class="price">1.4k Robux</div>
+        </div>
+    </div>
+
+    <div id="pied-de-page">
+        MOON Shop © 2026 | Credit: <strong>nabil</strong> (olkz_00)
+    </div>
+
+    <script>
+        const canvas = document.getElementById('voidCanvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        const mouse = { x: null, y: null, radius: 130 };
+
+        window.addEventListener('mousemove', (e) => { mouse.x = e.clientX; mouse.y = e.clientY; });
+        function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+        window.addEventListener('resize', resize);
+        resize();
+
+        class Particle {
+            constructor() { this.reset(); }
+            reset() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.isWhite = Math.random() > 0.7;
+                this.size = this.isWhite ? Math.random() * 2.5 + 0.8 : Math.random() * 1.5 + 0.2;
+                this.speedX = (Math.random() - 0.5) * 0.4;
+                this.speedY = (Math.random() - 0.5) * 0.4;
+                this.opacity = Math.random() * 0.6 + 0.1;
+                this.twinkle = Math.random() * 0.008 + 0.003;
+            }
+            update() {
+                this.x += this.speedX; this.y += this.speedY;
+                let dx = mouse.x - this.x; let dy = mouse.y - this.y;
+                let distance = Math.sqrt(dx * dx + dy * dy);
+                if (distance < mouse.radius) {
+                    const angle = Math.atan2(dy, dx);
+                    this.x -= Math.cos(angle) * 2; this.y -= Math.sin(angle) * 2;
+                }
+                this.opacity += this.twinkle;
+                if (this.opacity > 0.9 || this.opacity < 0.1) this.twinkle *= -1;
+                if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) this.reset();
+            }
+            draw() {
+                ctx.fillStyle = this.isWhite ? `rgba(255, 255, 255, ${this.opacity})` : `rgba(160, 32, 240, ${this.opacity})`;
+                ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fill();
+            }
+        }
+
+        for (let i = 0; i < 400; i++) particles.push(new Particle());
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => { p.update(); p.draw(); });
+            requestAnimationFrame(animate);
+        }
+        animate();
+    </script>
+</body>
+</html>
